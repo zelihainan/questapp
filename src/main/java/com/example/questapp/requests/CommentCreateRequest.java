@@ -3,12 +3,12 @@ package com.example.questapp.requests;
 import lombok.Data;
 
 @Data
-public class PostCreateRequest {
-
+public class CommentCreateRequest {
     Long id;
+    Long postId;
     String text;
-    String title;
     Long userId;
+
     public Long getId() {
         return id;
     }
@@ -17,20 +17,20 @@ public class PostCreateRequest {
         this.id = id;
     }
 
+    public Long getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
+
     public String getText() {
         return text;
     }
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Long getUserId() {
