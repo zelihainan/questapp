@@ -2,6 +2,7 @@ package com.example.questapp.controllers;
 
 import com.example.questapp.entities.Like;
 import com.example.questapp.requests.LikeCreateRequest;
+import com.example.questapp.responses.LikeResponse;
 import com.example.questapp.services.LikeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class LikeController {
         this.likeService = likeService;
     }
     @GetMapping
-    public List<Like> getAllLikes(@RequestParam Optional<Long> userId, @RequestParam Optional<Long> postId) {
+    public List<LikeResponse> getAllLikes(@RequestParam Optional<Long> userId, @RequestParam Optional<Long> postId) {
         return likeService.getAllLikes(userId,postId);
     }
     @PostMapping
