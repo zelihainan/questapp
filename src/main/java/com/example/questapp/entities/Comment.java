@@ -6,6 +6,8 @@ import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "comment")
 @Data
@@ -29,6 +31,17 @@ public class Comment {
     @Lob
     @Column(columnDefinition = "text")
     String text;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    Date createDate;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
     public Long getId() {
         return id;
