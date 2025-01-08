@@ -43,8 +43,12 @@ public class UserService {
         Optional<User> user = userRepository.findById(userId);
         if (user.isPresent()) {
             User foundUser = user.get();
-            foundUser.setUserName(newUser.getUserName());
-            foundUser.setPassword(newUser.getPassword());
+            if (newUser.getUserName() != null) {
+                foundUser.setUserName(newUser.getUserName());
+            }
+            if (newUser.getPassword() != null) {
+                foundUser.setPassword(newUser.getPassword());
+            }
             foundUser.setAvatar(newUser.getAvatar());
             userRepository.save(foundUser);
             return foundUser;
